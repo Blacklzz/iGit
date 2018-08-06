@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>test</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+   <servlet>
+   	<servlet-name>demoServer</servlet-name>
+   	<servlet-class>ah.sz.web.DemoServer</servlet-class> 	
+   </servlet>
+   <servlet-mapping>
+   <servlet-name>demoServer</servlet-name>
+  	<url-pattern>/demoServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <filter>
+ 	<filter-name>EncodingFilter</filter-name>
+ 	<filter-class>ah.sz.web.EncodingFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>EncodingFilter</filter-name>
+ 	<url-pattern>/*</url-pattern>
+ </filter-mapping>
+ 
+  <filter>
+ 	<filter-name>LoginFilter</filter-name>
+ 	<filter-class>ah.sz.web.LoginFilter</filter-class>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>LoginFilter</filter-name>
+ 	<url-pattern>/loginAfter/*</url-pattern>
+ </filter-mapping>
+ 
+
+ 
+<servlet>
+<servlet-name>ShowBookServlet</servlet-name>
+<servlet-class>ah.sz.web.ShowBookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	
+	<servlet-name>ShowBookServlet</servlet-name>
+	<url-pattern>/showBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>addToCartServlet</servlet-name>
+	<servlet-class>ah.sz.web.AddToCartServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>addToCartServlet</servlet-name>
+	<url-pattern>/loginAfter/addToCartServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>registerservlet</servlet-name>
+	<servlet-class>ah.sz.web.RegisterServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>registerservlet</servlet-name>
+	<url-pattern>/registerservlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>loginServlet</servlet-name>
+	<servlet-class>ah.sz.web.LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>loginServlet</servlet-name>
+	<url-pattern>/loginServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>deleteOrderLineServlet</servlet-name>
+	<servlet-class>ah.sz.web.DeleteOrderLineServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>deleteOrderLineServlet</servlet-name>
+	<url-pattern>/deleteOrderLineServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>submitServlet</servlet-name>
+	<servlet-class>ah.sz.web.SubmitServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>submitServlet</servlet-name>
+	<url-pattern>/submitServlet</url-pattern>
+</servlet-mapping>
+
+ <listener>
+ 	<listener-class>ah.sz.web.ServletContextListenerImpl</listener-class>
+ </listener>
+ 
+ 
+ <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+</error-page>
+
+</web-app>
